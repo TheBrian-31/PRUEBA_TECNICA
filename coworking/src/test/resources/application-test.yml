@@ -1,0 +1,19 @@
+server:
+  port: 18080
+
+spring:
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:db/access.sql,classpath:db/booking.sql
+
+security:
+  jwt:
+    secret: coworking-test-jwt-secret-key-32bytes!
+
+payment:
+  validation:
+    url: http://127.0.0.1:18080/internal/payments/validate
+    timeout: 3s
+    delay: 0s
+    force-failure: false

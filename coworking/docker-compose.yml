@@ -14,12 +14,51 @@ services:
 
     volumes:
       - postgres_data:/var/lib/postgresql/data
+      - ./src/main/resources/db:/docker-entrypoint-initdb.d:ro
 
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U coworking_user -d coworking_db"]
       interval: 10s
       timeout: 5s
       retries: 5
+
+  db-init:
+    image: postgres:16-alpine
+    container_name: coworking-db-init
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      PGPASSWORD: coworking_pass
+    volumes:
+      - ./src/main/resources/db:/sql:ro
+    entrypoint:
+      - sh
+      - -c
+      - |
+        psql -h postgres -U coworking_user -d coworking_db -v ON_ERROR_STOP=1 -f /sql/access.sql
+        psql -h postgres -U coworking_user -d coworking_db -v ON_ERROR_STOP=1 -f /sql/booking.sql
+    restart: "no"
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: coworking-app
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+      db-init:
+        condition: service_completed_successfully
+    environment:
+      SPRING_PROFILES_ACTIVE: dev
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/coworking_db
+      DB_USERNAME: coworking_user
+      DB_PASSWORD: coworking_pass
+      JWT_SECRET: coworking-dev-jwt-secret-key-32bytes!
+    ports:
+      - "8080:8080"
 
 volumes:
   postgres_data:
