@@ -439,6 +439,18 @@
               "path": [
                 "api",
                 "spaces"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0",
+                  "disabled": true
+                },
+                {
+                  "key": "size",
+                  "value": "25",
+                  "disabled": true
+                }
               ]
             }
           },
@@ -754,6 +766,16 @@
                       "key": "status",
                       "value": "PENDING",
                       "disabled": true
+                    },
+                    {
+                      "key": "page",
+                      "value": "0",
+                      "disabled": true
+                    },
+                    {
+                      "key": "size",
+                      "value": "25",
+                      "disabled": true
                     }
                   ]
                 }
@@ -946,6 +968,16 @@
                     {
                       "key": "status",
                       "value": "PENDING",
+                      "disabled": true
+                    },
+                    {
+                      "key": "page",
+                      "value": "0",
+                      "disabled": true
+                    },
+                    {
+                      "key": "size",
+                      "value": "25",
                       "disabled": true
                     }
                   ]
@@ -1509,37 +1541,6 @@
           "body": "{\n  \"from\": \"2026-10-17T14:00:00Z\",\n  \"to\": \"2026-10-25T14:00:00Z\",\n  \"spaces\": [\n    {\n      \"spaceId\": 1,\n      \"name\": \"Sala Norte\",\n      \"occupancyPercent\": 0\n    },\n    {\n      \"spaceId\": 2,\n      \"name\": \"Sala Este\",\n      \"occupancyPercent\": 0\n    },\n    {\n      \"spaceId\": 3,\n      \"name\": \"Sala Sur\",\n      \"occupancyPercent\": 0\n    }\n  ]\n}"
         }
       ]
-    },
-    {
-      "name": "New Request",
-      "request": {
-        "auth": {
-          "type": "bearer",
-          "bearer": [
-            {
-              "key": "token",
-              "value": "{{PASS_PRUEBA_TECNICA}}",
-              "type": "string"
-            }
-          ]
-        },
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "http://localhost:8080/internal/payments/validate",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "8080",
-          "path": [
-            "internal",
-            "payments",
-            "validate"
-          ]
-        }
-      },
-      "response": []
     }
   ]
 }

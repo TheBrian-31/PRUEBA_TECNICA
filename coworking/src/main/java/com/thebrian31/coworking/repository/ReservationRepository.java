@@ -2,6 +2,8 @@ package com.thebrian31.coworking.repository;
 
 import com.thebrian31.coworking.entity.Reservation;
 import com.thebrian31.coworking.entity.ReservationStatus;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -12,16 +14,17 @@ import java.util.List;
 public interface ReservationRepository extends JpaRepository<Reservation, Long> {
 
     @EntityGraph(attributePaths = {"account", "space"})
-    List<Reservation> findByAccountIdOrderByStartAtDesc(Long accountId);
+    Page<Reservation> findByAccountId(Long accountId, Pageable pageable);
 
     @EntityGraph(attributePaths = {"account", "space"})
-    List<Reservation> findByAccountIdAndStatusOrderByStartAtDesc(Long accountId, ReservationStatus status);
+    Page<Reservation> findByAccountIdAndStatus(Long accountId, ReservationStatus status, Pageable pageable);
+
+    @Override
+    @EntityGraph(attributePaths = {"account", "space"})
+    Page<Reservation> findAll(Pageable pageable);
 
     @EntityGraph(attributePaths = {"account", "space"})
-    List<Reservation> findAllByOrderByStartAtDesc();
-
-    @EntityGraph(attributePaths = {"account", "space"})
-    List<Reservation> findByStatusOrderByStartAtDesc(ReservationStatus status);
+    Page<Reservation> findByStatus(ReservationStatus status, Pageable pageable);
 
     @Query("""
             SELECT COUNT(reservation) > 0

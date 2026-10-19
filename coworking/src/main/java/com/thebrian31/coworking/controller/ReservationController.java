@@ -5,6 +5,10 @@ import com.thebrian31.coworking.dto.ReservationResponse;
 import com.thebrian31.coworking.entity.ReservationStatus;
 import com.thebrian31.coworking.service.ReservationService;
 import jakarta.validation.Valid;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,8 +19,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/reservations")
@@ -37,8 +39,11 @@ public class ReservationController {
     }
 
     @GetMapping
-    public List<ReservationResponse> findAll(@RequestParam(required = false) ReservationStatus status) {
-        return reservationService.findAll(status);
+    public Page<ReservationResponse> findAll(
+            @RequestParam(required = false) ReservationStatus status,
+            @PageableDefault(size = 20, sort = "startAt", direction = Sort.Direction.DESC) Pageable pageable
+    ) {
+        return reservationService.findAll(status, pageable);
     }
 
     @GetMapping("/{id}")

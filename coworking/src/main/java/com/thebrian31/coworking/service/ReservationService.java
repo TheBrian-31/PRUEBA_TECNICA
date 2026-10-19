@@ -21,13 +21,14 @@ import com.thebrian31.coworking.repository.UserRepository;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.SQLException;
 import java.time.OffsetDateTime;
-import java.util.List;
 
 @Service
 public class ReservationService {
@@ -93,21 +94,19 @@ public class ReservationService {
     }
 
     @Transactional(readOnly = true)
-    public List<ReservationResponse> findAll(ReservationStatus status) {
+    public Page<ReservationResponse> findAll(ReservationStatus status, Pageable pageable) {
         User currentUser = currentUser();
-        List<Reservation> reservations;
+        Page<Reservation> reservations;
         if (isAdmin(currentUser)) {
             reservations = status == null
-                    ? reservationRepository.findAllByOrderByStartAtDesc()
-                    : reservationRepository.findByStatusOrderByStartAtDesc(status);
+                    ? reservationRepository.findAll(pageable)
+                    : reservationRepository.findByStatus(status, pageable);
         } else if (status == null) {
-            reservations = reservationRepository.findByAccountIdOrderByStartAtDesc(currentUser.getId());
+            reservations = reservationRepository.findByAccountId(currentUser.getId(), pageable);
         } else {
-            reservations = reservationRepository.findByAccountIdAndStatusOrderByStartAtDesc(currentUser.getId(), status);
+            reservations = reservationRepository.findByAccountIdAndStatus(currentUser.getId(), status, pageable);
         }
-        return reservations.stream()
-                .map(reservationMapper::toResponse)
-                .toList();
+        return reservations.map(reservationMapper::toResponse);
     }
 
     @Transactional(readOnly = true)

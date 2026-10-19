@@ -10,10 +10,10 @@ import com.thebrian31.coworking.mapper.SpaceMapper;
 import com.thebrian31.coworking.repository.SpaceRepository;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
 
 @Service
 public class SpaceService {
@@ -27,10 +27,8 @@ public class SpaceService {
     }
 
     @Transactional(readOnly = true)
-    public List<SpaceResponse> findAll() {
-        return spaceRepository.findAll().stream()
-                .map(spaceMapper::toResponse)
-                .toList();
+    public Page<SpaceResponse> findAll(Pageable pageable) {
+        return spaceRepository.findAll(pageable).map(spaceMapper::toResponse);
     }
 
     @Transactional(readOnly = true)
