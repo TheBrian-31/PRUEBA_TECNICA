@@ -1,0 +1,1545 @@
+{
+  "info": {
+    "_postman_id": "cc6d0ac5-a603-4ecd-add3-915dbc88d72f",
+    "name": "Coworking",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "39235516"
+  },
+  "item": [
+    {
+      "name": "AUTH",
+      "item": [
+        {
+          "name": "Login ADMIN",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"juan@correo.com\",\r\n    \"password\": \"secreto12\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login USER",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"cjuarez@correo.com\",\r\n  \"password\": \"secreto12\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Users",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{PASS_PRUEBA_TECNICA}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"fullName\": \"string\",\r\n  \"email\": \"user@example.com\",\r\n  \"password\": \"stringst\",\r\n  \"role\": \"ADMIN\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/users",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"fullName\": \"Juan Ruiz\",\r\n  \"email\": \"juan@correo.com\",\r\n  \"password\": \"secreto12\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/auth/register",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "SPACES",
+      "item": [
+        {
+          "name": "New space",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{PASS_PRUEBA_TECNICA}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Sala Sur\",\r\n    \"type\": \"WORK\",\r\n    \"capacity\": 8,\r\n    \"location\": \"Piso 2\",\r\n    \"hourlyRate\": 25.00,\r\n    \"outOfService\": false\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/spaces",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "spaces"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Exito",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"Sala Norte\",\r\n    \"type\": \"WORK\",\r\n    \"capacity\": 8,\r\n    \"location\": \"Piso 2\",\r\n    \"hourlyRate\": 25.00,\r\n    \"outOfService\": false\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/spaces",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "spaces"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "x-xss-protection",
+                  "value": "0"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "expires",
+                  "value": "0"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "transfer-encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "date",
+                  "value": "Sun, 18 Oct 2026 01:37:07 GMT"
+                },
+                {
+                  "key": "keep-alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"id\": 3,\n  \"name\": \"Sala Norte\",\n  \"type\": \"WORK\",\n  \"capacity\": 8,\n  \"location\": \"Piso 2\",\n  \"hourlyRate\": 25,\n  \"outOfService\": false,\n  \"createdAt\": \"2026-10-17T19:37:07.5929433-06:00\",\n  \"updatedAt\": \"2026-10-17T19:37:07.5929433-06:00\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Edit space",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{PASS_PRUEBA_TECNICA}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"capacity\": 10\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/spaces/3",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "spaces",
+                "3"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Edit",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"capacity\": 10\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/spaces/3",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "spaces",
+                    "3"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "x-xss-protection",
+                  "value": "0"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "expires",
+                  "value": "0"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "transfer-encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "date",
+                  "value": "Sun, 18 Oct 2026 01:43:21 GMT"
+                },
+                {
+                  "key": "keep-alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"id\": 3,\n  \"name\": \"Sala Norte\",\n  \"type\": \"WORK\",\n  \"capacity\": 10,\n  \"location\": \"Piso 2\",\n  \"hourlyRate\": 25,\n  \"outOfService\": false,\n  \"createdAt\": \"2026-10-18T01:37:07.592943Z\",\n  \"updatedAt\": \"2026-10-18T01:37:07.592943Z\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Obtener One",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{PASS_PRUEBA_TECNICA}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/spaces/3",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "spaces",
+                "3"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Obtener Lista",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{PASS_PRUEBA_TECNICA}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/spaces",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "spaces"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Obtener Lista",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/api/spaces",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "spaces"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "x-xss-protection",
+                  "value": "0"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "expires",
+                  "value": "0"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "transfer-encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "date",
+                  "value": "Sun, 18 Oct 2026 01:52:08 GMT"
+                },
+                {
+                  "key": "keep-alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n  {\n    \"id\": 4,\n    \"name\": \"Sala Norte\",\n    \"type\": \"WORK\",\n    \"capacity\": 8,\n    \"location\": \"Piso 2\",\n    \"hourlyRate\": 25,\n    \"outOfService\": false,\n    \"createdAt\": \"2026-10-18T01:50:38.084488Z\",\n    \"updatedAt\": \"2026-10-18T01:50:38.084488Z\"\n  },\n  {\n    \"id\": 5,\n    \"name\": \"Sala Norte\",\n    \"type\": \"WORK\",\n    \"capacity\": 8,\n    \"location\": \"Piso 2\",\n    \"hourlyRate\": 25,\n    \"outOfService\": false,\n    \"createdAt\": \"2026-10-18T01:51:50.750344Z\",\n    \"updatedAt\": \"2026-10-18T01:51:50.750344Z\"\n  }\n]"
+            },
+            {
+              "name": "Obtener Lista",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/api/spaces",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "spaces"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "x-xss-protection",
+                  "value": "0"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "expires",
+                  "value": "0"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "transfer-encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "date",
+                  "value": "Sun, 18 Oct 2026 01:52:08 GMT"
+                },
+                {
+                  "key": "keep-alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n  {\n    \"id\": 4,\n    \"name\": \"Sala Norte\",\n    \"type\": \"WORK\",\n    \"capacity\": 8,\n    \"location\": \"Piso 2\",\n    \"hourlyRate\": 25,\n    \"outOfService\": false,\n    \"createdAt\": \"2026-10-18T01:50:38.084488Z\",\n    \"updatedAt\": \"2026-10-18T01:50:38.084488Z\"\n  },\n  {\n    \"id\": 5,\n    \"name\": \"Sala Norte\",\n    \"type\": \"WORK\",\n    \"capacity\": 8,\n    \"location\": \"Piso 2\",\n    \"hourlyRate\": 25,\n    \"outOfService\": false,\n    \"createdAt\": \"2026-10-18T01:51:50.750344Z\",\n    \"updatedAt\": \"2026-10-18T01:51:50.750344Z\"\n  }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Eliminar",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{PASS_PRUEBA_TECNICA}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/spaces/3",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "spaces",
+                "3"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "RESERVATIONS",
+      "item": [
+        {
+          "name": "USER",
+          "item": [
+            {
+              "name": "New reservation",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{PASS_USER_PRUEBA_TECNICA}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"spaceId\": 3,\r\n  \"startAt\": \"2026-12-21T09:00:00-06:00\",\r\n  \"endAt\": \"2026-12-21T11:00:00-06:00\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/reservations",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "reservations"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Confirmed - Reserva",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{PASS_USER_PRUEBA_TECNICA}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/api/reservations/5/confirm",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "reservations",
+                    "5",
+                    "confirm"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Complete- Reserva",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{PASS_USER_PRUEBA_TECNICA}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/api/reservations/3/complete",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "reservations",
+                    "3",
+                    "complete"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Obtener Lista",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{PASS_USER_PRUEBA_TECNICA}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/api/reservations",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "reservations"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "PENDING",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "ADMIN",
+          "item": [
+            {
+              "name": "New reservation",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{PASS_PRUEBA_TECNICA}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"spaceId\": 4,\r\n  \"startAt\": \"2026-11-20T09:00:00-06:00\",\r\n  \"endAt\": \"2026-11-20T11:00:00-06:00\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/reservations",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "reservations"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Exitoso",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"spaceId\": 4,\r\n  \"startAt\": \"2026-10-20T09:00:00-06:00\",\r\n  \"endAt\": \"2026-10-20T11:00:00-06:00\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "http://localhost:8080/api/reservations",
+                      "protocol": "http",
+                      "host": [
+                        "localhost"
+                      ],
+                      "port": "8080",
+                      "path": [
+                        "api",
+                        "reservations"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "x-content-type-options",
+                      "value": "nosniff"
+                    },
+                    {
+                      "key": "x-xss-protection",
+                      "value": "0"
+                    },
+                    {
+                      "key": "cache-control",
+                      "value": "no-cache, no-store, max-age=0, must-revalidate"
+                    },
+                    {
+                      "key": "pragma",
+                      "value": "no-cache"
+                    },
+                    {
+                      "key": "expires",
+                      "value": "0"
+                    },
+                    {
+                      "key": "x-frame-options",
+                      "value": "DENY"
+                    },
+                    {
+                      "key": "content-type",
+                      "value": "application/json"
+                    },
+                    {
+                      "key": "transfer-encoding",
+                      "value": "chunked"
+                    },
+                    {
+                      "key": "date",
+                      "value": "Sun, 18 Oct 2026 03:14:55 GMT"
+                    },
+                    {
+                      "key": "keep-alive",
+                      "value": "timeout=60"
+                    },
+                    {
+                      "key": "connection",
+                      "value": "keep-alive"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n  \"id\": 1,\n  \"accountId\": 5,\n  \"spaceId\": 4,\n  \"startAt\": \"2026-10-20T15:00:00Z\",\n  \"endAt\": \"2026-10-20T17:00:00Z\",\n  \"status\": \"PENDING\",\n  \"createdAt\": \"2026-10-17T21:14:55.8719699-06:00\"\n}"
+                }
+              ]
+            },
+            {
+              "name": "Cancelar",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{PASS_PRUEBA_TECNICA}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/api/reservations/1/cancel",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "reservations",
+                    "1",
+                    "cancel"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Obtener Lista",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{PASS_PRUEBA_TECNICA}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/api/reservations",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "reservations"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "PENDING",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Obtener One",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{PASS_PRUEBA_TECNICA}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/api/reservations/1",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "reservations",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Estadisticas",
+      "item": [
+        {
+          "name": "Circuitbreakers",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{PASS_PRUEBA_TECNICA}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/actuator/circuitbreakers",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "actuator",
+                "circuitbreakers"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Circuitbreakers",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/actuator/circuitbreakers",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "actuator",
+                    "circuitbreakers"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "x-xss-protection",
+                  "value": "0"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "expires",
+                  "value": "0"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/vnd.spring-boot.actuator.v3+json"
+                },
+                {
+                  "key": "transfer-encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "date",
+                  "value": "Sun, 18 Oct 2026 17:24:07 GMT"
+                },
+                {
+                  "key": "keep-alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"circuitBreakers\": {\n    \"payment\": {\n      \"failureRate\": \"-1.0%\",\n      \"slowCallRate\": \"-1.0%\",\n      \"failureRateThreshold\": \"50.0%\",\n      \"slowCallRateThreshold\": \"100.0%\",\n      \"bufferedCalls\": 0,\n      \"failedCalls\": 0,\n      \"slowCalls\": 0,\n      \"slowFailedCalls\": 0,\n      \"notPermittedCalls\": 0,\n      \"state\": \"HALF_OPEN\"\n    }\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Metrics",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{PASS_PRUEBA_TECNICA}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/actuator/metrics",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "actuator",
+                "metrics"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Metrics",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/actuator/metrics",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "actuator",
+                    "metrics"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "x-xss-protection",
+                  "value": "0"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "expires",
+                  "value": "0"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/vnd.spring-boot.actuator.v3+json"
+                },
+                {
+                  "key": "transfer-encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "date",
+                  "value": "Sun, 18 Oct 2026 17:42:57 GMT"
+                },
+                {
+                  "key": "keep-alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"names\": [\n    \"application.ready.time\",\n    \"application.started.time\",\n    \"disk.free\",\n    \"disk.total\",\n    \"executor.active\",\n    \"executor.completed\",\n    \"executor.pool.core\",\n    \"executor.pool.max\",\n    \"executor.pool.size\",\n    \"executor.queue.remaining\",\n    \"executor.queued\",\n    \"hikaricp.connections\",\n    \"hikaricp.connections.acquire\",\n    \"hikaricp.connections.active\",\n    \"hikaricp.connections.creation\",\n    \"hikaricp.connections.idle\",\n    \"hikaricp.connections.max\",\n    \"hikaricp.connections.min\",\n    \"hikaricp.connections.pending\",\n    \"hikaricp.connections.timeout\",\n    \"hikaricp.connections.usage\",\n    \"http.server.requests\",\n    \"http.server.requests.active\",\n    \"jdbc.connections.active\",\n    \"jdbc.connections.idle\",\n    \"jdbc.connections.max\",\n    \"jdbc.connections.min\",\n    \"jvm.buffer.count\",\n    \"jvm.buffer.memory.used\",\n    \"jvm.buffer.total.capacity\",\n    \"jvm.classes.loaded\",\n    \"jvm.classes.unloaded\",\n    \"jvm.compilation.time\",\n    \"jvm.gc.live.data.size\",\n    \"jvm.gc.max.data.size\",\n    \"jvm.gc.memory.allocated\",\n    \"jvm.gc.memory.promoted\",\n    \"jvm.gc.overhead\",\n    \"jvm.gc.pause\",\n    \"jvm.info\",\n    \"jvm.memory.committed\",\n    \"jvm.memory.max\",\n    \"jvm.memory.usage.after.gc\",\n    \"jvm.memory.used\",\n    \"jvm.threads.daemon\",\n    \"jvm.threads.live\",\n    \"jvm.threads.peak\",\n    \"jvm.threads.started\",\n    \"jvm.threads.states\",\n    \"logback.events\",\n    \"process.cpu.time\",\n    \"process.cpu.usage\",\n    \"process.files.max\",\n    \"process.files.open\",\n    \"process.start.time\",\n    \"process.uptime\",\n    \"resilience4j.bulkhead.active.thread.count\",\n    \"resilience4j.bulkhead.available.thread.count\",\n    \"resilience4j.bulkhead.core.thread.pool.size\",\n    \"resilience4j.bulkhead.max.thread.pool.size\",\n    \"resilience4j.bulkhead.queue.capacity\",\n    \"resilience4j.bulkhead.queue.depth\",\n    \"resilience4j.bulkhead.thread.pool.size\",\n    \"resilience4j.circuitbreaker.buffered.calls\",\n    \"resilience4j.circuitbreaker.calls\",\n    \"resilience4j.circuitbreaker.failure.rate\",\n    \"resilience4j.circuitbreaker.not.permitted.calls\",\n    \"resilience4j.circuitbreaker.slow.call.rate\",\n    \"resilience4j.circuitbreaker.slow.calls\",\n    \"resilience4j.circuitbreaker.state\",\n    \"resilience4j.timelimiter.calls\",\n    \"spring.data.repository.invocations\",\n    \"spring.security.authorizations\",\n    \"spring.security.authorizations.active\",\n    \"spring.security.filterchains\",\n    \"spring.security.filterchains.JwtAuthenticationFilter.after\",\n    \"spring.security.filterchains.JwtAuthenticationFilter.before\",\n    \"spring.security.filterchains.access.exceptions.after\",\n    \"spring.security.filterchains.access.exceptions.before\",\n    \"spring.security.filterchains.active\",\n    \"spring.security.filterchains.authentication.anonymous.after\",\n    \"spring.security.filterchains.authentication.anonymous.before\",\n    \"spring.security.filterchains.authorization.after\",\n    \"spring.security.filterchains.authorization.before\",\n    \"spring.security.filterchains.context.async.after\",\n    \"spring.security.filterchains.context.async.before\",\n    \"spring.security.filterchains.context.holder.after\",\n    \"spring.security.filterchains.context.holder.before\",\n    \"spring.security.filterchains.context.servlet.after\",\n    \"spring.security.filterchains.context.servlet.before\",\n    \"spring.security.filterchains.header.after\",\n    \"spring.security.filterchains.header.before\",\n    \"spring.security.filterchains.logout.after\",\n    \"spring.security.filterchains.logout.before\",\n    \"spring.security.filterchains.requestcache.after\",\n    \"spring.security.filterchains.requestcache.before\",\n    \"spring.security.filterchains.session.management.after\",\n    \"spring.security.filterchains.session.management.before\",\n    \"spring.security.filterchains.session.urlencoding.after\",\n    \"spring.security.filterchains.session.urlencoding.before\",\n    \"spring.security.http.secured.requests\",\n    \"spring.security.http.secured.requests.active\",\n    \"system.cpu.count\",\n    \"system.cpu.usage\",\n    \"system.load.average.1m\",\n    \"tomcat.sessions.active.current\",\n    \"tomcat.sessions.active.max\",\n    \"tomcat.sessions.alive.max\",\n    \"tomcat.sessions.created\",\n    \"tomcat.sessions.expired\",\n    \"tomcat.sessions.rejected\"\n  ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Health",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{PASS_PRUEBA_TECNICA}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/actuator/health",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "actuator",
+                "health"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Health",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/actuator/health",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "actuator",
+                    "health"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "x-xss-protection",
+                  "value": "0"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "expires",
+                  "value": "0"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/vnd.spring-boot.actuator.v3+json"
+                },
+                {
+                  "key": "transfer-encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "date",
+                  "value": "Sun, 18 Oct 2026 17:28:45 GMT"
+                },
+                {
+                  "key": "keep-alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"status\": \"UP\",\n  \"components\": {\n    \"circuitBreakers\": {\n      \"status\": \"UNKNOWN\",\n      \"details\": {\n        \"payment\": {\n          \"status\": \"CIRCUIT_HALF_OPEN\",\n          \"details\": {\n            \"failureRate\": \"-1.0%\",\n            \"failureRateThreshold\": \"50.0%\",\n            \"slowCallRate\": \"-1.0%\",\n            \"slowCallRateThreshold\": \"100.0%\",\n            \"bufferedCalls\": 1,\n            \"slowCalls\": 0,\n            \"slowFailedCalls\": 0,\n            \"failedCalls\": 1,\n            \"notPermittedCalls\": 0,\n            \"state\": \"HALF_OPEN\"\n          }\n        }\n      }\n    },\n    \"db\": {\n      \"status\": \"UP\",\n      \"details\": {\n        \"database\": \"PostgreSQL\",\n        \"validationQuery\": \"isValid()\"\n      }\n    },\n    \"discoveryComposite\": {\n      \"description\": \"Discovery Client not initialized\",\n      \"status\": \"UNKNOWN\",\n      \"components\": {\n        \"discoveryClient\": {\n          \"description\": \"Discovery Client not initialized\",\n          \"status\": \"UNKNOWN\"\n        }\n      }\n    },\n    \"diskSpace\": {\n      \"status\": \"UP\",\n      \"details\": {\n        \"total\": 1081101176832,\n        \"free\": 1014437093376,\n        \"threshold\": 10485760,\n        \"path\": \"/app/.\",\n        \"exists\": true\n      }\n    },\n    \"ping\": {\n      \"status\": \"UP\"\n    },\n    \"refreshScope\": {\n      \"status\": \"UP\"\n    },\n    \"ssl\": {\n      \"status\": \"UP\",\n      \"details\": {\n        \"validChains\": [],\n        \"invalidChains\": []\n      }\n    }\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Info",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{PASS_PRUEBA_TECNICA}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/actuator/info",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "actuator",
+                "info"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Info",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/actuator/info",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "actuator",
+                    "info"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "x-xss-protection",
+                  "value": "0"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "expires",
+                  "value": "0"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/vnd.spring-boot.actuator.v3+json"
+                },
+                {
+                  "key": "transfer-encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "date",
+                  "value": "Sun, 18 Oct 2026 21:50:53 GMT"
+                },
+                {
+                  "key": "keep-alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"app\": {\n    \"name\": \"coworking\",\n    \"description\": \"Prueba Técnica: API de reservas de espacios de coworking\",\n    \"version\": \"0.0.1\"\n  }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Reports",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{PASS_PRUEBA_TECNICA}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/reports/occupancy?from=2026-10-17T08:00:00-06:00&to=2026-12-31T08:00:00-06:00",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "reports",
+            "occupancy"
+          ],
+          "query": [
+            {
+              "key": "from",
+              "value": "2026-10-17T08:00:00-06:00"
+            },
+            {
+              "key": "to",
+              "value": "2026-12-31T08:00:00-06:00"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Reports",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/reports/occupancy?from=2026-10-17T08:00:00-06:00&to=2026-10-25T08:00:00-06:00",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "reports",
+                "occupancy"
+              ],
+              "query": [
+                {
+                  "key": "from",
+                  "value": "2026-10-17T08:00:00-06:00"
+                },
+                {
+                  "key": "to",
+                  "value": "2026-10-25T08:00:00-06:00"
+                }
+              ]
+            }
+          },
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "x-content-type-options",
+              "value": "nosniff"
+            },
+            {
+              "key": "x-xss-protection",
+              "value": "0"
+            },
+            {
+              "key": "cache-control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "expires",
+              "value": "0"
+            },
+            {
+              "key": "x-frame-options",
+              "value": "DENY"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            },
+            {
+              "key": "transfer-encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "date",
+              "value": "Sun, 18 Oct 2026 17:06:45 GMT"
+            },
+            {
+              "key": "keep-alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"from\": \"2026-10-17T14:00:00Z\",\n  \"to\": \"2026-10-25T14:00:00Z\",\n  \"spaces\": [\n    {\n      \"spaceId\": 1,\n      \"name\": \"Sala Norte\",\n      \"occupancyPercent\": 0\n    },\n    {\n      \"spaceId\": 2,\n      \"name\": \"Sala Este\",\n      \"occupancyPercent\": 0\n    },\n    {\n      \"spaceId\": 3,\n      \"name\": \"Sala Sur\",\n      \"occupancyPercent\": 0\n    }\n  ]\n}"
+        }
+      ]
+    },
+    {
+      "name": "New Request",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{PASS_PRUEBA_TECNICA}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/internal/payments/validate",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "internal",
+            "payments",
+            "validate"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
